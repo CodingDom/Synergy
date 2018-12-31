@@ -1,6 +1,7 @@
 html,body {
     height: 1800px;
     font-family: 'Muli', sans-serif;
+    background-color: ghostwhite;
 }
 
 nav {
@@ -111,11 +112,12 @@ hr {
 
 .main-content {
     min-width: 830px;
+    margin-bottom: 60px;
     text-align: center;
 }
 
 .subheader {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .card {
@@ -154,5 +156,10 @@ hr {
 }
 
 ul {
+    text-align: left;
+}
+
+form {
+    margin: auto;
     text-align: left;
 }

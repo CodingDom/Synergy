@@ -8,22 +8,29 @@ function setPage(page) {
     };
 };
 
+
 function alterNav() {
-    var pos = $(window).scrollTop();
+    var pos = $(window).scrollTop()+44;
     $("nav a").attr("class","");
-    if (pos < 105) {
+    if (pos < 100) {
         $("nav").css({"display":"block","background-color":"","box-shadow":""});
         $("#nav-logo").css("display","none");
         setPage("home");
     }    
-    else if (pos >= 105 && pos < $("#about").offset().top-80) {
+    else if (pos >= 100 && pos < $("#about").offset().top-34) {
         $("nav").css("display","none");
     }
-    else if (pos >= $("#about").offset().top-80) {
+    else if (pos >= $("#about").offset().top-34 && pos < $("#contact").offset().top-160) {
         $("nav").css({"background-color":"#9900ff","box-shadow":"0px 1px 5px 2px darkgray"});
         $("nav").slideDown(200);
         $("#nav-logo").css("display","inline");
         setPage("about");
+    }
+    else if (pos > $("#contact").offset().top-160) {
+        $("nav").css({"background-color":"#9900ff","box-shadow":"0px 1px 5px 2px darkgray"});
+        $("nav").slideDown(200);
+        $("#nav-logo").css("display","inline");
+        setPage("contact");
     };    
 };
 
@@ -49,5 +56,8 @@ $('a').on("click", function() {
 
 $(window).on("scroll", alterNav);
 
+console.log(`Designed and Coded by Dominic Smith.
+https://www.CodingDom.com/
+`);
 
 });

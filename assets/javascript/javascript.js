@@ -1,3 +1,5 @@
+const siteWidth = 830;
+
 function setPage(page) {
     for (let i = 0; i < $("nav a").length; i++) {
         if ($($("nav a")[i]).attr("href") == "#"+page) {
@@ -64,13 +66,17 @@ function watchForHover() {
     enableHover();
 }
 
+function scaleBody() {
+    const scale = screen.width /siteWidth
+
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+}
+
 $(document).ready(function(){
 
 alterNav();
 
-if (window.innerWidth <= 830) {
-    //scaleBody();
-}
+scaleBody();
 
 $(".card-body").css("display","none");
 $(".card-body").fadeIn(2000);
@@ -92,12 +98,11 @@ $('a').on("click", function() {
 
 $(window).on("scroll", alterNav);
 
-var siteWidth = 830;
-var scale = screen.width /siteWidth
 
-document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
 
 watchForHover();
+
+$(window).on("orientationchange",scaleBody);
 
 console.log(`Designed and Coded by Dominic Smith.
 https://www.CodingDom.com/

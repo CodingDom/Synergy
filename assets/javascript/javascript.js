@@ -83,6 +83,11 @@ $('a').on("click", function() {
 
 $(window).on("scroll", alterNav);
 
+var siteWidth = 830;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
 //$(window).on("resize", scaleBody);
 
 //$(window).on("orientationchange", scaleBody);

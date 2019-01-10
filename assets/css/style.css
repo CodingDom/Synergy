@@ -180,6 +180,10 @@ ul {
     text-align: left;
 }
 
+#contact {
+    margin-top: -45px;
+}
+
 form {
     margin: auto;
     text-align: left;
@@ -187,7 +191,7 @@ form {
 
 @media (max-width: 1024px) {
     html {
-        font-size: 75%;
+        font-size: 90%;
     }
 
     nav {
@@ -198,10 +202,3 @@ form {
         display: block;
     }
 }
-
-
-/* @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    nav {
-        visibility: hidden;
-    }
-} */

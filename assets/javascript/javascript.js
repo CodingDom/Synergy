@@ -53,7 +53,7 @@ function scaleBody(event,vwidth=window.outerWidth) {
             "transform":``,
         });
     };
-}
+};
 
 $(document).ready(function(){
 

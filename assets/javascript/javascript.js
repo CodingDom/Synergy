@@ -44,6 +44,7 @@ function scaleBody(event,vwidth=window.outerWidth) {
         if (window.innerWidth > vwidth && window.innerWidth < 830) {
             scaleBody("",window.innerWidth);
         };
+        $(window).scrollTop($(window).scrollTop()-1);
     }
     else {
         $("body").css({

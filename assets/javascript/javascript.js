@@ -60,7 +60,7 @@ $(document).ready(function(){
 alterNav();
 
 if (window.innerWidth <= 830) {
-    scaleBody();
+    //scaleBody();
 }
 
 $(".card-body").css("display","none");
@@ -85,7 +85,7 @@ $(window).on("scroll", alterNav);
 
 //$(window).on("resize", scaleBody);
 
-$(window).on("orientationchange", scaleBody);
+//$(window).on("orientationchange", scaleBody);
 
 console.log(`Designed and Coded by Dominic Smith.
 https://www.CodingDom.com/

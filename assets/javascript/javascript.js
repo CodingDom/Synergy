@@ -44,9 +44,6 @@ function scaleBody(event,vwidth=window.outerWidth) {
         if (window.innerWidth > vwidth && window.innerWidth < 830) {
             scaleBody("",window.innerWidth);
         };
-        $('html,body').animate({
-            scrollTop: window.scrollTop+5
-        }, 100);
     }
     else {
         $("body").css({
@@ -61,7 +58,10 @@ function scaleBody(event,vwidth=window.outerWidth) {
 $(document).ready(function(){
 
 alterNav();
-scaleBody();
+
+if (window.innerWidth <= 830) {
+    scaleBody();
+}
 
 $(".card-body").css("display","none");
 $(".card-body").fadeIn(2000);
@@ -83,7 +83,9 @@ $('a').on("click", function() {
 
 $(window).on("scroll", alterNav);
 
-$(window).on("resize", scaleBody);
+//$(window).on("resize", scaleBody);
+
+$(window).on("onorientationchange", scaleBody);
 
 console.log(`Designed and Coded by Dominic Smith.
 https://www.CodingDom.com/

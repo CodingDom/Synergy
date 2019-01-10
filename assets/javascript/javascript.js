@@ -85,7 +85,7 @@ $(window).on("scroll", alterNav);
 
 //$(window).on("resize", scaleBody);
 
-$(window).on("onorientationchange", scaleBody);
+$(window).on("orientationchange", scaleBody);
 
 console.log(`Designed and Coded by Dominic Smith.
 https://www.CodingDom.com/

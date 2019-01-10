@@ -20,13 +20,13 @@ function alterNav() {
     else if (pos >= 100 && pos < $("#about").offset().top-34) {
         $("nav").css("display","none");
     }
-    else if (pos >= $("#about").offset().top-34 && pos < $("#contact").offset().top-160) {
+    else if (pos >= $("#about").offset().top-34 && pos < $("#contact").offset().top-(window.innerHeight*0.3)) {
         $("nav").css({"background-color":"#9900ff","box-shadow":"0px 1px 5px 2px darkgray"});
         $("nav").slideDown(200);
         $("#nav-logo").css("display","inline");
         setPage("about");
     }
-    else if (pos > $("#contact").offset().top-160) {
+    else if (pos > $("#contact").offset().top-(window.innerHeight*0.3)) {
         $("nav").css({"background-color":"#9900ff","box-shadow":"0px 1px 5px 2px darkgray"});
         $("nav").slideDown(200);
         $("#nav-logo").css("display","inline");

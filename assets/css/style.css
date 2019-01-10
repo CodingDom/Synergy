@@ -1,5 +1,9 @@
+html {
+    max-width: 100vw;
+}
+
 html,body {
-    min-height: 100vh;
+    max-height: 100vh;
     overflow-x: hidden;
     font-family: 'Muli', sans-serif;
     background-color: ghostwhite;

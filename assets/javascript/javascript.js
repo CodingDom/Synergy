@@ -32,28 +32,37 @@ function alterNav() {
     };    
 };
 
-function scaleBody(event,vwidth=window.outerWidth) {
-    if (vwidth < 830) {
-        const scale = vwidth/830;
-        $("body").css({
-            "-o-transform":`scale(${scale})`,
-            "-ms-transform":`scale(${scale})`,
-            "-webkit-transform":`scale(${scale})`,
-            "transform":`scale(${scale})`,
-        });
-        if (window.innerWidth > vwidth && window.innerWidth < 830) {
-            scaleBody("",window.innerWidth);
-        };
+function watchForHover() {
+    var hasHoverClass = false;
+    var container = document.body;
+    var lastTouchTime = 0;
+
+    function enableHover() {
+        // filter emulated events coming from touch events
+        if (new Date() - lastTouchTime < 500) return;
+        if (hasHoverClass) return;
+
+        container.className += ' hasHover';
+        hasHoverClass = true;
     }
-    else {
-        $("body").css({
-            "-o-transform":``,
-            "-ms-transform":``,
-            "-webkit-transform":``,
-            "transform":``,
-        });
-    };
-};
+
+    function disableHover() {
+        if (!hasHoverClass) return;
+
+        container.className = container.className.replace(' hasHover', '');
+        hasHoverClass = false;
+    }
+
+    function updateLastTouchTime() {
+        lastTouchTime = new Date();
+    }
+
+    document.addEventListener('touchstart', updateLastTouchTime, true);
+    document.addEventListener('touchstart', disableHover, true);
+    document.addEventListener('mousemove', enableHover, true);
+
+    enableHover();
+}
 
 $(document).ready(function(){
 
@@ -88,9 +97,7 @@ var scale = screen.width /siteWidth
 
 document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
 
-//$(window).on("resize", scaleBody);
-
-//$(window).on("orientationchange", scaleBody);
+watchForHover();
 
 console.log(`Designed and Coded by Dominic Smith.
 https://www.CodingDom.com/

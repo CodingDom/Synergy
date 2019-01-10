@@ -193,6 +193,10 @@ form {
     nav {
         visibility: hidden;
     }
+
+    .card-deck {
+        display: block;
+    }
 }
 
 

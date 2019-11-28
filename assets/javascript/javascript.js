@@ -137,8 +137,7 @@ $('#contact form').on("submit", function(e){
     const email = $("#email").val();
     const message = $("#message").val();
     const token = $("#recaptcha-token").val();
-    console.log($("#contact form").serialize());
-    emailjs.send("gmail", "contact_form", {"user_name":name, "user_email": email, "message": message, "recaptcha-token": token}, "user_k4ucsDYDh8sP6nkFJNr9F");
+    emailjs.send("gmail", "contact_form", {"user_name":name, "user_email": email, "message": message, "g-recaptcha-response": token}, "user_k4ucsDYDh8sP6nkFJNr9F");
 
     // $.post('mail.php', $('form').serialize(), function( data ) {
     //     $( ".modal-body" ).html( data );

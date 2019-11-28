@@ -176,7 +176,7 @@ hr {
 }
 
 .card-text {
-    font-size: 18px;
+    font-size: 1.35rem;
 }
 
 ul {
@@ -192,6 +192,26 @@ form {
     text-align: left;
 }
 
+.g-recaptcha {
+    margin-bottom: 10px;
+}
+
+.modal-header {
+    background-color: #9900ff;
+    background-image: linear-gradient(#7700c7, #9900ff, #7700c7);
+    background-image: -moz-linear-gradient(#7700c7, #9900ff, #7700c7);
+    background-image: -o-linear-gradient(#7700c7, #9900ff, #7700c7);
+    color: white;
+}
+
+.modal button {
+    color: white;
+}
+
+.modal-footer button {
+    background-color: #9900ff;
+}
+
 footer {
     position: relative;
     bottom: 0;
@@ -199,9 +219,9 @@ footer {
     padding: 10px 0;
     width: 100%;
     background-color: rgb(51, 51, 51);
-    background-image: -o-linear-gradient(black,rgb(51,51,51),black);
-    background-image: -webkit-linear-gradient(black,rgb(51,51,51),black);
-    background-image: linear-gradient(black,rgb(51,51,51),black);
+    background-image: -o-linear-gradient(rgb(35,35,35),rgb(51,51,51),rgb(35,35,35));
+    background-image: -webkit-linear-gradient(rgb(35,35,35),rgb(51,51,51),rgb(35,35,35));
+    background-image: linear-gradient(rgb(35,35,35),rgb(51,51,51),rgb(35,35,35));
     border-top: 3px solid #9900ff;
     color: white;
     font-size: small;
@@ -225,11 +245,27 @@ footer .index {
         font-size: 90%;
     }
 
+    .main-content {
+        font-size: 150%;
+    }
+
     nav {
         visibility: hidden;
     }
 
+    .subheader {
+        font-size: 2.75rem;
+    }
+
     .card-deck {
         display: block;
+    }
+
+    .card-title {
+        font-size: 2.5rem;
+    }
+
+    .card-text {
+        font-size: 2rem;
     }
 }

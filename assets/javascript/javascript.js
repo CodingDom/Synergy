@@ -72,11 +72,26 @@ function scaleBody() {
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
 }
 
+ // Function to handle input keypress
+function letterInput(event) {
+  const value = String.fromCharCode(event.which);
+  // Only grab letters a-z and whitespaces
+  const pattern = new RegExp(/[a-z ]/i);
+  return pattern.test(value);
+};
+
 $(document).ready(function(){
 
 alterNav();
 
 scaleBody();
+
+// Listener for user input
+$("#first_name, #last_name").bind('keypress',letterInput);
+
+$("input").on("paste", function(e){
+    e.preventDefault();
+});
 
 $(".card-body").css("display","none");
 $(".card-body").fadeIn(2000);
@@ -103,6 +118,39 @@ $(window).on("scroll", alterNav);
 watchForHover();
 
 $(window).on("orientationchange",scaleBody);
+
+const aliases = {
+    first_name: "mce-FNAME",
+    last_name: "mce-LNAME",
+    email: "mce-EMAIL",
+    message: "mce-MESSAGE"
+}
+
+// $("#contact *").on("change", function(e) {
+//     if (aliases[this.id]) {
+//         $(`#${aliases[this.id]}`).val(this.value);
+//     }
+// });
+
+$('#contact form').on("submit", function(e){
+    const name = [$("#first_name").val(),$("#last_name").val()].join(" ");
+    const email = $("#email").val();
+    const message = $("#message").val();
+    const token = $("#recaptcha-token").val();
+    emailjs.send("gmail", "contact_form", {"user_name":name, "user_email": email, "message": message, "recaptcha-token": token});
+
+    // $.post('mail.php', $('form').serialize(), function( data ) {
+    //     $( ".modal-body" ).html( data );
+    //     $("#status").modal("show");
+    //     if(data.indexOf("data-clear") > 0) {
+    //         $('form input, textarea').val("");
+    //         grecaptcha.reset();
+    //     };
+    // });
+
+    // $("#mc-embedded-subscribe").click();
+    return false;
+});
 
 console.log(`Designed and Coded by Dominic Smith.
 https://www.CodingDom.com/

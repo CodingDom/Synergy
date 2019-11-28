@@ -141,7 +141,7 @@ $('#contact form').on("submit", function(e){
     const data = {"user_name":name, "user_email": email, "message": message, "g-recaptcha-response": token};
     console.log(data);
 
-    emailjs.send("gmail", "contact_form", , "user_k4ucsDYDh8sP6nkFJNr9F")
+    emailjs.send("gmail", "contact_form", data, "user_k4ucsDYDh8sP6nkFJNr9F")
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
      }, function(error) {

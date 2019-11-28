@@ -137,6 +137,9 @@ $('#contact form').on("submit", function(e){
     const email = $("#email").val();
     const message = $("#message").val();
     const token = $("#recaptcha-token").val();
+
+    console.log(name, email, message, token);
+
     emailjs.send("gmail", "contact_form", {"name":name, "email": email, "message": message, "g-recaptcha-response": token}, "user_k4ucsDYDh8sP6nkFJNr9F")
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);

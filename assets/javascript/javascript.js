@@ -133,6 +133,7 @@ const aliases = {
 // });
 
 $('#contact form').on("submit", function(e){
+    e.preventDefault();
     const name = [$("#first_name").val(),$("#last_name").val()].join(" ");
     const email = $("#email").val();
     const message = $("#message").val();
@@ -146,17 +147,6 @@ $('#contact form').on("submit", function(e){
      }, function(error) {
         console.log('FAILED...', error);
      });;
-
-    // $.post('mail.php', $('form').serialize(), function( data ) {
-    //     $( ".modal-body" ).html( data );
-    //     $("#status").modal("show");
-    //     if(data.indexOf("data-clear") > 0) {
-    //         $('form input, textarea').val("");
-    //         grecaptcha.reset();
-    //     };
-    // });
-
-    // $("#mc-embedded-subscribe").click();
     return false;
 });
 

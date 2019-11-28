@@ -137,7 +137,7 @@ $('#contact form').on("submit", function(e){
     const name = [$("#first_name").val(),$("#last_name").val()].join(" ");
     const email = $("#email").val();
     const message = $("#message").val();
-    const token = $("#form").serializeArray()[4].value;
+    const token = $("#contact form").serializeArray()[4].value;
 
     console.log(name, email, message, token);
 

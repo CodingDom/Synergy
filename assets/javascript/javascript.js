@@ -138,10 +138,10 @@ $('#contact form').on("submit", function(e){
     const email = $("#email").val();
     const message = $("#message").val();
     const token = $("#contact form").serializeArray()[4].value;
+    const data = {"user_name":name, "user_email": email, "message": message, "g-recaptcha-response": token};
+    console.log(data);
 
-    console.log(name, email, message, token);
-
-    emailjs.send("gmail", "contact_form", {"name":name, "email": email, "message": message, "g-recaptcha-response": token}, "user_k4ucsDYDh8sP6nkFJNr9F")
+    emailjs.send("gmail", "contact_form", , "user_k4ucsDYDh8sP6nkFJNr9F")
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
      }, function(error) {
